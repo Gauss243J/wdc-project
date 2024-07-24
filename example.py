@@ -2,7 +2,7 @@ import openai
 import streamlit as st
 import toml
 from streamlit_chat import message
-import os
+#import os
 
 # Set page title and header
 st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:", layout="centered", initial_sidebar_state="auto")
@@ -20,8 +20,8 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 st.markdown("<h1 style='text-align: center;'>World Disaster Center 🌐</h1>", unsafe_allow_html=True)
 
 # Load API key from environment variable
-#openai.api_key = st.secrets["API_KEY"]
-openai.api_key = os.getenv("API_KEY")
+openai.api_key = st.secrets["API_KEY"]
+#openai.api_key = os.getenv("API_KEY")
 
 # Initialize session state
 if 'generated' not in st.session_state:
@@ -59,7 +59,6 @@ if clear_button:
     st.session_state['cost'] = []
     st.session_state['total_cost'] = 0.0
     st.session_state['total_tokens'] = []
-    counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 # Function to check if the question is disaster-related
 def is_disaster_related(question):
@@ -118,8 +117,8 @@ with container:
 if st.session_state['generated']:
     with response_container:
         for i in range(len(st.session_state['generated'])):
-            message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
-            message(f"🌐 {st.session_state['generated'][i]}", key=str(i))
+            message(st.session_state["past"][i], is_user=True, key=str(i) + '_user', avatar_style="initials", seed="HM")
+            message(f"🌐 {st.session_state['generated'][i]}", key=str(i), avatar_style="initials", seed="WDC")
 
 
 
