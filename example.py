@@ -4,7 +4,7 @@ import toml
 from streamlit_chat import message
 
 # Set page title and header
-st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:", layout="centered", initial_sidebar_state="auto)
+st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:", layout="centered", initial_sidebar_state="auto")
 # Disable the default Streamlit menu
 hide_streamlit_style = """
     <style>
