@@ -4,17 +4,7 @@ import toml
 from streamlit_chat import message
 
 # Set page title and header
-st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:", layout="centered", initial_sidebar_state="auto")
-# Disable the default Streamlit menu
-hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    </style>
-    """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
+st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:")
 
 st.markdown("<h1 style='text-align: center;'>World Disaster Center 🌐</h1>", unsafe_allow_html=True)
 
