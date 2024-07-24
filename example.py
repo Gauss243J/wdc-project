@@ -8,8 +8,7 @@ st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:")
 st.markdown("<h1 style='text-align: center;'>World Disaster Center 🌐</h1>", unsafe_allow_html=True)
 
 # Load API key from environment variable
-secrets = toml.load('secrets.toml')
-openai.api_key = secrets['openai']['api_key']
+openai.api_key = st.secrets["API_KEY"]
 
 
 # Initialize session state
