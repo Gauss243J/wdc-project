@@ -2,15 +2,26 @@ import openai
 import streamlit as st
 import toml
 from streamlit_chat import message
+import os
 
 # Set page title and header
-st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:")
+st.set_page_config(page_title="WDC", page_icon=":globe_with_meridians:", layout="centered", initial_sidebar_state="auto")
+
+# Hide the default Streamlit menu and footer
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>World Disaster Center 🌐</h1>", unsafe_allow_html=True)
 
 # Load API key from environment variable
-openai.api_key = st.secrets["API_KEY"]
-
+#openai.api_key = st.secrets["API_KEY"]
+openai.api_key = os.getenv("API_KEY")
 
 # Initialize session state
 if 'generated' not in st.session_state:
